@@ -24,13 +24,13 @@ const PizzaForm = ({editPizza,topping, size, vegetarian, notVegetarian}) => {
         </div>
         <div className="col">
           <div className="form-check">
-            <input id="vegetarianTrue" className="form-check-input" type="radio" value="Vegetarian" name='vegetarian' defaultChecked={vegetarian} onChange={editing}/>
+            <input id="vegetarianTrue" className="form-check-input" type="radio" name='vegetarian' value='vegetarian' defaultChecked={vegetarian} onChange={editing}/>
             <label className="form-check-label">
               Vegetarian
             </label>
           </div>
           <div className="form-check">
-            <input id="vegetarianFalse" className="form-check-input" type="radio" value="Not Vegetarian" name='notVegetarian' defaultChecked={notVegetarian} onChange={editing}/>
+            <input id="vegetarianFalse" className="form-check-input" type="radio" value='notVegetarian' name='vegetarian' defaultChecked={notVegetarian} onChange={editing}/>
             <label className="form-check-label">
               Not Vegetarian
             </label>

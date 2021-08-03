@@ -22,8 +22,8 @@ class App extends Component {
         pizzas: data,
         topping: '',
         size: '',
-        vegetarian: null,
-        notVegetarian: null
+        vegetarian: false,
+        notVegetarian: false
 
       })})
   }
@@ -36,18 +36,18 @@ class App extends Component {
     return this.setState({
       topping: pizzaToEdit.topping,
       size: pizzaToEdit.size,
-      vegetarian: pizzaToEdit.vegetarian ? true : null,
-      notVegetarian: pizzaToEdit.vegetarian ? null : true
+      vegetarian: pizzaToEdit.vegetarian ? true : false,
+      notVegetarian: pizzaToEdit.vegetarian ? false : true
     },()=>{console.log(this.state.size, this.state.topping, this.state.vegetarian, this.state.notVegetarian)})
 }
 
 editPizza = (name, value) => {
-  if (name === 'vegetarian'){
+  if (value === 'vegetarian'){
   this.setState({
     vegetarian: value,
     notVegetarian: null
   })
-} else if (name === 'notVegetarian'){
+} else if (value === 'notVegetarian'){
   this.setState({
     vegetarian: null,
     notVegetarian: value
