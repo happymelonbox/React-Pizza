@@ -1,13 +1,16 @@
 import React from "react"
 
-const PizzaForm = ({pizzaToEdit}) => {
+const PizzaForm = ({editPizza,topping, size, vegetarian, notVegetarian}) => {
+
+  const editing =(value)=>{
+  }
   return(
       <div className="form-row">
         <div className="col-5">
-            <input type="text" className="form-control" placeholder="Pizza Topping" value={pizzaToEdit.topping}/>
+            <input name="topping" id="topping" type="text" className="form-control" placeholder="Pizza Topping" defaultValue={topping}/>
         </div>
         <div className="col">
-          <select value={pizzaToEdit.size} className="form-control">
+          <select name="size" id="size" value={size} className="form-control" onChange={editing}>
             <option value="Small">Small</option>
             <option value="Medium">Medium</option>
             <option value="Large">Large</option>
@@ -15,13 +18,13 @@ const PizzaForm = ({pizzaToEdit}) => {
         </div>
         <div className="col">
           <div className="form-check">
-            <input className="form-check-input" type="radio" value="Vegetarian" checked={pizzaToEdit.vegetarian ? true : null}/>
+            <input id="vegetarianTrue" className="form-check-input" type="radio" value="Vegetarian" name='vegetarian' defaultChecked={vegetarian}  onChange={editing}/>
             <label className="form-check-label">
               Vegetarian
             </label>
           </div>
           <div className="form-check">
-            <input className="form-check-input" type="radio" value="Not Vegetarian" checked={pizzaToEdit.vegetarian ? null : true}/>
+            <input id="vegetarianFalse" className="form-check-input" type="radio" value="Not Vegetarian" name='notVegetarian' defaultChecked={notVegetarian} onChange={editing}/>
             <label className="form-check-label">
               Not Vegetarian
             </label>
