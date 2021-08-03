@@ -58,12 +58,16 @@ editPizza = (name, value) => {
   })
 }
 }
+handleUpdate = (size, topping, vege) => {
+  const vegetarian = vege ? 'Yes please' : 'No thanks'
+  console.log(`Update pizza: Topping: ${topping}, Size: ${size}, Vegetarian: ${vegetarian}`)
+}
 
   render() {
     return (
       <Fragment>
         <Header/>
-        <PizzaForm editPizza={this.editPizza} topping={this.state.topping} size={this.state.size} vegetarian={this.state.vegetarian} notVegetarian={this.state.notVegetarian}/>
+        <PizzaForm editPizza={this.editPizza} topping={this.state.topping} size={this.state.size} updatePizza={this.handleUpdate} vegetarian={this.state.vegetarian} notVegetarian={this.state.notVegetarian}/>
         <PizzaList pizzas={this.state.pizzas} editPizzaDisplay={this.editPizzaDisplay}/>
       </Fragment>
     );

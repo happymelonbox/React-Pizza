@@ -1,9 +1,12 @@
 
 import React from "react"
 
-const PizzaForm = ({editPizza,topping, size, vegetarian, notVegetarian}) => {
+const PizzaForm = ({editPizza,topping, size, vegetarian, notVegetarian, updatePizza}) => {
   const handleSubmit = () => {
-
+    const pizzaSize = document.getElementById('size').value
+    const pizzaTopping = document.getElementById('topping').value
+    const pizzaVegetarian = document.getElementById('vegetarianTrue').defaultChecked
+    updatePizza(pizzaSize, pizzaTopping, pizzaVegetarian)
   }
   const editing = (event) =>{
     const name = event.target.name
@@ -13,7 +16,7 @@ const PizzaForm = ({editPizza,topping, size, vegetarian, notVegetarian}) => {
   return(
       <div className="form-row">
         <div className="col-5">
-            <input name="topping" id="topping" type="text" className="form-control" placeholder="Pizza Topping" defaultValue={topping}/>
+            <input name="topping" id="topping" type="text" className="form-control" placeholder="Pizza Topping" defaultValue={topping} onChange={editing}/>
         </div>
         <div className="col">
           <select name="size" id="size" value={size} className="form-control" onChange={editing}>
@@ -37,7 +40,7 @@ const PizzaForm = ({editPizza,topping, size, vegetarian, notVegetarian}) => {
           </div>
         </div>
         <div className="col">
-          <button type="submit" className="btn btn-success" onSubmit={handleSubmit} onClick={console.log}>Submit</button>
+          <button type="submit" className="btn btn-success" onClick={handleSubmit}>Submit</button>
         </div>
       </div>
 
